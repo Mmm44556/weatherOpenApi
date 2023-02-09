@@ -1,0 +1,132 @@
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css);
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap');
+
+:root {
+  font-family: 'Roboto Slab', serif;
+}
+
+body {
+  --bs-bg-opacity: .1;
+  background-color: rgba(var(--bs-secondary-rgb), var(--bs-bg-opacity)) !important;
+}
+
+.carou-container {
+  height: 100%;
+  background: rgb(138, 134, 134);
+  background: linear-gradient(0deg, rgba(138, 134, 134, 1) 6%, rgba(153, 153, 153, 1) 19%);
+
+}
+
+.fake {
+  height: 300px;
+  width: 400px;
+  position: relative;
+
+}
+
+
+.carouselbar .card {
+  border-radius: 10px;
+  height: 200px;
+  width: 300px;
+  overflow: hidden;
+  z-index: 1;
+  position: absolute;
+  bottom: 55px;
+
+}
+
+.card-bg {
+  height: 250px;
+  width: 330px;
+  background: rgb(46, 46, 44);
+  background: radial-gradient(circle, rgba(46, 46, 44, 1) 25%, rgba(36, 36, 34, 1) 78%);
+  border-radius: 20px;
+  transition: height .3s ease .1s;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+  transition-delay: 0.1s;
+  transition-property: width, height;
+
+}
+
+.card-bg:hover {
+  width: 350px;
+  height: 280px;
+
+}
+
+.card-bg .card {
+  background: rgb(46, 46, 44);
+  background: radial-gradient(circle, rgba(46, 46, 44, 1) 25%, rgba(36, 36, 34, 1) 78%);
+}
+
+.cardTitle>h5 {
+  font-size: 30px;
+}
+
+
+.time-day {
+  font-size: 20px;
+  color: white;
+  height: 100%;
+  width: 100%;
+  overflow: scroll;
+  z-index: -1;
+}
+
+.faFontSize {
+  font-size: 70px;
+  z-index: 1;
+  opacity: .1;
+
+}
+
+.open-info-btn {
+  position: absolute;
+  z-index: 1;
+  font-size: 25px;
+  bottom: 0px;
+  height: 30px;
+  width: 50%;
+  border-bottom: 50px;
+  color: white;
+  background: rgb(46, 46, 44);
+  background: radial-gradient(circle, rgba(46, 46, 44, 1) 25%, rgba(36, 36, 34, 1) 78%);
+  border: none;
+  transition: font-size .3s ease .1s;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+  transition-delay: 0.1s;
+  transition-property: font-size;
+}
+
+.open-info-btn:hover {
+  font-size: 30px;
+
+}
+
+.info {
+  position: absolute;
+  z-index: 1;
+  font-size: 20px;
+  top: 60px;
+  right: 80px;
+  color: lightblue;
+
+}
+
+.trafiic-light {
+  z-index: 1;
+  position: absolute;
+  bottom: 10px;
+  right: 50px;
+}
+.breadcrumb li{
+  text-align: center;
+  z-index: 1;
+  width: 40px;
+  font-size: 40px;
+
+}

@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <link rel="stylesheet" href="./public/reset.css">
+  <link rel="stylesheet" href="./public/style.css">
+  <script src="./JS/forecasting.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+
+</head>
+
+<body class="">
+  <nav class="navbar navbar-expand-lg bg-body-tertiary " style="height: 60px; font-size: 18px;">
+    <div class="container-fluid ">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03"
+        aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" href="#" style="font-size: 30px;">Weather Forecast</a>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo03">
+        <ul class="nav nav-tabs">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">
+              首頁</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+              aria-expanded="false">總覽</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">天氣</a></li>
+              <hr class="dropdown-divider">
+              <li><a class="dropdown-item" href="#">溫度</a></li>
+              <hr class="dropdown-divider">
+              <li><a class="dropdown-item" href="#">舒適度</a></li>
+              <hr class="dropdown-divider">
+              <li><a class="dropdown-item" href="#">降雨機率</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="#">Separated link</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="123.html">Link</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+              aria-controls="offcanvasRight">登入/註冊</a>
+
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- Register offcanvas -->
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasRightLabel">Offcanvas right</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      ...
+    </div>
+  </div>
+  <!-- end register offcanvas -->
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
+<div id="carouselExample" class="carousel slide carouselbar ">
+  <div class="carousel-inner ">
+    <div class="carousel-item active ">
+      <div class="carou-container row row-cols-1 row-cols-md-3 g-4 p-5  ">
+        <div class="col ">
+          <div class="fake d-inline-flex shadow-lg justify-content-center align-items-center">
+            <div class="card-bg shadow-lg d-inline-flex justify-content-center align-items-center">
+              <!-- <div class="card " style="overflow: hidden;">
+                <h5 class="weather-title ">地區</h5>
+                <p class="card-text "> -->
+              <!-- <select class="region-select form-select" aria-label="Default select example">
+                <option selected>選擇地區</option>
+              </select>
+            </p>
+            <button type="button" class="region-check">確認</button> -->
+              <!-- </div> -->
+              <div class="card shadow "><img src="./img/taiwan.jpg" alt="" style="transform:translate(0px,-90px) ;">
+              </div>
+              <!-- Button trigger modal -->
+              <button type="button" class="open-info-btn region-check">
+                地區選擇
+              </button>
+               <nav class="trafiic-light">
+                <ol class="breadcrumb">
+                  <li><p style="color:yellow;">．</p></li>
+                  <li><p style="color:green;">．</p></li>
+                  <li><p style="color:red;">．</p></li>
+                </ol>
+              </nav>
+              <select class="region-select form-select dropdown-toggle" aria-label="Default select example"
+                style="z-index: 1;position: absolute;bottom:0px; right: 50px; width:20px;height: 35px;">
+                <option selected>選擇地區</option>
+              </select>
+              </p>
+              <!-- 資訊Modal -->
+              <div class="modal animate__animated animate__fadeIn " id="exampleModal_1" tabindex="-1"
+                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog ">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1 class="modal-title fs-5" id="exampleModalLabel">選擇地區</h1>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body ">
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+
+          <div class="fake d-inline-flex justify-content-center shadow align-items-center">
+
+            <div class="card-bg shadow-lg d-inline-flex  justify-content-center align-items-center">
+              <!-- <div class="card">
+                <h5 class="weather card-title">天氣氣象</h5>
+                
+                <div class="time-day"></div>
+              </div> -->
+              <div class="card shadow  justify-content-center align-items-center">
+                <div class="time-day"></div>
+              </div>
+              <nav class="trafiic-light">
+                <ol class="breadcrumb">
+                  <li><p style="color:yellow;">．</p></li>
+                  <li><p style="color:green;">．</p></li>
+                  <li><p style="color:red;">．</p></li>
+                </ol>
+              </nav>
+              <i class="fa-sharp fa-solid fa-cloud faFontSize" style="color: #8aaade;"></i>
+            </div>
+
+            <!-- Button trigger modal -->
+            <button type="button" class="open-info-btn  " data-bs-toggle="modal" data-bs-target="#exampleModal_2">
+              天氣氣象
+            </button>
+            <!-- 資訊Modal -->
+            <div class="modal animate__animated animate__jackInTheBox " id="exampleModal_2" tabindex="-1"
+              aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog ">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">天氣氣象</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body ">
+                    <!-- modal內容 -->
+                    <div class="modalContent"></div>
+                    <!-- ----------- -->
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="fake d-inline-flex justify-content-center   shadow-lg align-items-center">
+            <div class="card-bg shadow-lg d-inline-flex justify-content-center align-items-center">
+              <!-- <div class="card">
+                <h5 class="probability-of-precipitation">降雨機率</h5>
+                <div class="modalContent"></div>          
+              </div> -->
+              <div class="card shadow  justify-content-center align-items-center">
+                <div class="time-day"></div>
+              </div>
+                <nav class="trafiic-light">
+                <ol class="breadcrumb">
+                  <li><p style="color:yellow;">．</p></li>
+                  <li><p style="color:green;">．</p></li>
+                  <li><p style="color:red;">．</p></li>
+                </ol>
+              </nav>
+              <i class="fa-solid fa-snowflake faFontSize" style="color:#0063ff ;"></i>
+              <!-- Button trigger modal -->
+              <button type="button" class="open-info-btn  " data-bs-toggle="modal" data-bs-target="#exampleModal_3">
+                降雨機率(%)
+              </button>
+              <i class="fa-solid fa-percent info"></i>
+              <!-- 資訊Modal -->
+              <div class="modal animate__animated animate__jackInTheBox " id="exampleModal_3" tabindex="-1"
+                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog ">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1 class="modal-title fs-5" id="exampleModalLabel">降雨機率</h1>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body ">
+                      <!-- modal內容 -->
+                      <div class="modalContent"></div>
+                      <!-- ------------ -->
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="fake d-inline-flex justify-content-center shadow-lg align-items-center">
+            <div class="card-bg shadow-lg  d-inline-flex justify-content-center align-items-center">
+              <!-- <div class="card">
+                <h5 class="min-temperaturecard-title">最低溫度</h5>
+                <div class="modalContent"></div>
+              </div> -->
+              <div class="card shadow   justify-content-center align-items-center">
+                <div class="time-day"></div>
+              </div>
+               <nav class="trafiic-light">
+                <ol class="breadcrumb">
+                  <li><p style="color:yellow;">．</p></li>
+                  <li><p style="color:green;">．</p></li>
+                  <li><p style="color:red;">．</p></li>
+                </ol>
+              </nav>
+              <i class="fa-solid fa-temperature-arrow-down faFontSize" style="color:#4da7ff ;"></i>
+            </div>
+            <!-- Button trigger modal -->
+            <button type="button" class="open-info-btn  " data-bs-toggle="modal" data-bs-target="#exampleModal_4">
+              最低溫度(°C)
+            </button>
+            <i class="info fa-solid fa-c"></i>
+            <!-- 資訊Modal -->
+            <div class="modal animate__animated animate__jackInTheBox " id="exampleModal_4" tabindex="-1"
+              aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog ">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">最低溫度(°C)</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body ">
+                    <!-- modal內容 -->
+                    <div class="modalContent"></div>
+                    <!-- ----------------- -->
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="fake d-inline-flex justify-content-center shadow-lg align-items-center">
+            <div class="card-bg shadow-lg d-inline-flex justify-content-center align-items-center">
+              <div class="card shadow   justify-content-center align-items-center">
+                <div class="time-day"></div>
+              </div>
+               <nav class="trafiic-light">
+                <ol class="breadcrumb">
+                  <li><p style="color:yellow;">．</p></li>
+                  <li><p style="color:green;">．</p></li>
+                  <li><p style="color:red;">．</p></li>
+                </ol>
+              </nav>
+              <i class="fa-regular fa-face-grin-wide faFontSize" style="color:#ffffff;"></i>
+            </div>
+            <!-- Button trigger modal -->
+            <button type="button" class="open-info-btn  " data-bs-toggle="modal" data-bs-target="#exampleModal_5">
+              舒適度
+            </button>
+            <!-- 資訊Modal -->
+            <div class="modal animate__animated animate__jackInTheBox " id="exampleModal_5" tabindex="-1"
+              aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog ">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">舒適度</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body ">
+                    <!-- modal內容 -->
+                    <div class="modalContent"></div>
+                    <!-- -------------------- -->
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="fake d-inline-flex justify-content-center shadow-lg align-items-center">
+            <div class="card-bg shadow-lg d-inline-flex justify-content-center align-items-center">
+              <div class="card shadow   justify-content-center align-items-center">
+                <div class="time-day">
+                </div>
+              </div>
+               <nav class="trafiic-light">
+                <ol class="breadcrumb">
+                  <li><p style="color:yellow;">．</p></li>
+                  <li><p style="color:green;">．</p></li>
+                  <li><p style="color:red;">．</p></li>
+                </ol>
+              </nav>
+              <i class="fa-solid fa-temperature-arrow-up faFontSize" style="color:#f95555 ;"></i>
+            </div>
+            <!-- Button trigger modal -->
+            <button type="button" class="open-info-btn  " data-bs-toggle="modal" data-bs-target="#exampleModal_6">
+              最高溫度(°C)
+            </button>
+            <i class="info fa-solid fa-c"></i>
+            <!-- 資訊Modal -->
+            <div class="modal animate__animated animate__jackInTheBox " id="exampleModal_6" tabindex="-1"
+              aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog ">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel_6">最高溫度(°C)</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body ">
+                    <!-- modal內容 -->
+                    <div class="modalContent"></div>
+                    <!-- ----------- -->
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="carousel-item">
+    <div class="row row-cols-1 row-cols-md-3 g-4 p-5">
+      <div class="col">
+        <div class="card text-bg-dark">
+          <img src="https://fakeimg.pl/300x100/200" class="card-img" alt="...">
+          <div class="card-img-overlay">
+            <h5 class="card-title">地震海嘯</h5>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
+              content.
+              This content is a little bit longer.</p>
+            <p class="card-text"><small>Last updated 3 mins ago</small></p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card text-bg-dark">
+          <img src="https://fakeimg.pl/300x100/200" class="card-img" alt="...">
+          <div class="card-img-overlay">
+            <h5 class="card-title">警戒程度</h5>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
+              content.
+              This content is a little bit longer.</p>
+            <p class="card-text"><small>Last updated 3 mins ago</small></p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card text-bg-dark">
+          <img src="https://fakeimg.pl/300x100/200" class="card-img" alt="...">
+          <div class="card-img-overlay">
+            <h5 class="card-title">資訊來源</h5>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
+              content.
+              This content is a little bit longer.</p>
+            <p class="card-text"><small>Last updated 3 mins ago</small></p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card text-bg-dark">
+          <img src="https://fakeimg.pl/300x100/200" class="card-img" alt="...">
+          <div class="card-img-overlay">
+            <h5 class="card-title">震源深度</h5>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
+              content.
+              This content is a little bit longer.</p>
+            <p class="card-text"><small>Last updated 3 mins ago</small></p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card text-bg-dark">
+          <img src="https://fakeimg.pl/300x100/200" class="card-img" alt="...">
+          <div class="card-img-overlay">
+            <h5 class="card-title">級數</h5>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
+              content.
+              This content is a little bit longer.</p>
+            <p class="card-text"><small>Last updated 3 mins ago</small></p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card text-bg-dark">
+          <img src="https://fakeimg.pl/300x100/200" class="card-img" alt="...">
+          <div class="card-img-overlay">
+            <h5 class="card-title">地區</h5>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
+              content.
+              This content is a little bit longer.</p>
+            <p class="card-text"><small>Last updated 3 mins ago</small></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="carousel-item">
+    <div class="row row-cols-1 row-cols-md-3 g-4 p-5">
+      <div class="col">
+        <div class="card text-bg-dark">
+          <img src="https://fakeimg.pl/300x100/200" class="card-img" alt="...">
+          <div class="card-img-overlay">
+            <h5 class="card-title">##</h5>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
+              content.
+              This content is a little bit longer.</p>
+            <p class="card-text"><small>Last updated 3 mins ago</small></p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card text-bg-dark">
+          <img src="https://fakeimg.pl/300x100/200" class="card-img" alt="...">
+          <div class="card-img-overlay">
+            <h5 class="card-title">##</h5>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
+              content.
+              This content is a little bit longer.</p>
+            <p class="card-text"><small>Last updated 3 mins ago</small></p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card text-bg-dark">
+          <img src="https://fakeimg.pl/300x100/200" class="card-img" alt="...">
+          <div class="card-img-overlay">
+            <h5 class="card-title">##</h5>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
+              content.
+              This content is a little bit longer.</p>
+            <p class="card-text"><small>Last updated 3 mins ago</small></p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card text-bg-dark">
+          <img src="https://fakeimg.pl/300x100/200" class="card-img" alt="...">
+          <div class="card-img-overlay">
+            <h5 class="card-title">##</h5>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
+              content.
+              This content is a little bit longer.</p>
+            <p class="card-text"><small>Last updated 3 mins ago</small></p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card text-bg-dark">
+          <img src="https://fakeimg.pl/300x100/200" class="card-img" alt="...">
+          <div class="card-img-overlay">
+            <h5 class="card-title">##</h5>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
+              content.
+              This content is a little bit longer.</p>
+            <p class="card-text"><small>Last updated 3 mins ago</small></p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card text-bg-dark">
+          <img src="https://fakeimg.pl/300x100/200" class="card-img" alt="...">
+          <div class="card-img-overlay">
+            <h5 class="card-title">##</h5>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
+              content.
+              This content is a little bit longer.</p>
+            <p class="card-text"><small>Last updated 3 mins ago</small></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" style="width:50px" type="button" data-bs-target="#carouselExample"
+    data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" style="width:50px" type="button" data-bs-target="#carouselExample"
+    data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
