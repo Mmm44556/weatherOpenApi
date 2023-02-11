@@ -1,4 +1,4 @@
-var url = 'https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-63A6B843-0CD8-4205-936A-3601802A5B7A&locationName=';
+var url = 'http://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-27DB4735-6447-4977-911A-BA0BA1A0D84B';
 window.onload = function () {
   var counter = 0;
 
@@ -17,15 +17,17 @@ window.onload = function () {
 
 
 
-
+    regionCheck.innerHTML = regionValue;
 
     locations.forEach(element => {//把所有地區放進選項
       const regionOption = document.createElement('option');
       counter++;
       regionOption.innerHTML = element.locationName;
       region.appendChild(regionOption);
-    });
 
+      
+    
+    });
 
     regionCheck.addEventListener('click', function check() {//地區選擇
       let region = document.querySelector('.region-select');
@@ -50,7 +52,7 @@ window.onload = function () {
       locations.forEach(element => {
 
         if (regionValue === element.locationName) {//選取當前地區的資料
-            regionCheck.innerHTML=regionValue;
+           
           day.forEach(allNode => {
             if (day[x].childNodes.length < timeLength) {
               //判斷每個節點超過陣列長度(未來三天的時間)就不執行
@@ -74,6 +76,7 @@ window.onload = function () {
       });
     });
   };
+  
 
   getIss();
 
